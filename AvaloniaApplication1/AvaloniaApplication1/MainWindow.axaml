@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:components="clr-namespace:AvaloniaApplication1.Components"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+        x:Class="AvaloniaApplication1.MainWindow"
+        CanResize="False"
+        Title="pedal"
+        Background="LightGray">
+    <Border Padding="10">
+        <DockPanel>
+            <Border DockPanel.Dock="Top">
+                <components:TemplatedControl1 />
+            </Border>
+            <Border DockPanel.Dock="Top"
+                    Margin="1">
+                <Button Click="OpenFile_Click"
+                        Background="Black"
+                        Foreground="White">
+                    Select FIT File
+                </Button>
+            </Border>
+            <Canvas Name="Chart" Background="DimGray"
+                    PointerMoved="Chart_OnPointerMoved"
+                    PointerPressed="Chart_OnPointerPressed"
+                    PointerReleased="Chart_OnPointerReleased">
+                <Rectangle Name="Brush"
+                           IsVisible="False"
+                           Fill="Aqua" />
+
+                <Line Stroke="Blue"
+                      Name="VerticalLine" />
+
+                <Polyline Name="PowerLine"
+                          Stroke="Purple"
+                          StrokeThickness="2"
+                          Canvas.Bottom="0">
+                </Polyline>
+                <Polyline Name="HrLine"
+                          Stroke="Red"
+                          StrokeThickness="1"
+                          Canvas.Bottom="0">
+                </Polyline>
+            </Canvas>
+
+        </DockPanel>
+    </Border>
+</Window>
